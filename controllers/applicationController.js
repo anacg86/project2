@@ -20,5 +20,19 @@ router.get("/", isAuthenticated, function(req, res) {
   });
 });
 
+//TEST ROUTE -- DELETE LATER
+//We use this route to check if the relationship between user
+//and dress is established correctly
+router.get("/reservations", isAuthenticated, function(req, res) {
+  models.User.findOne({
+    where: {
+      id: req.user.id
+    },
+    include: [ models.Reservation ]
+  }).then(function(dbUser) {
+    res.json(dbUser);
+  });
+});
+
 //Prepare the file to output our router.
 module.exports = router;

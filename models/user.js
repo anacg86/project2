@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  User.associate = function() {
-    // associations can be defined here
+  User.associate = function(models) {
+    User.hasMany(models.Reservation);
   };
   //va al template original del user y le pone el login
   //se le manda el password, del usuario actual (this user) agarra su password y la compara con la que le habiamos mandado

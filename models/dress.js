@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     stock: DataTypes.INTEGER,
     picture: DataTypes.STRING,
-    price: DataTypes.INTEGER
+    price: DataTypes.INTEGER,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {});
   Dress.associate = function(models) {
     Dress.hasMany(models.Reservation);

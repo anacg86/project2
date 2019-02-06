@@ -5,9 +5,11 @@ const express = require("express");
 const router = express.Router();
 const isAuthenticated = require("../middlewares/isAuthenticated");
 
+
+//RUTA CAMBIADA
 //va a checar si estamos autenticados para darle el welcome
 //A simple GET route
-router.get("/", isAuthenticated, function(req, res) {
+router.get("/welcome", isAuthenticated, function(req, res) {
   //Using the handlebars view engine
   //we tell it to render the
   //welcome.hbs view, and give it
@@ -32,6 +34,43 @@ router.get("/reservations", isAuthenticated, function(req, res) {
   }).then(function(dbUser) {
     res.json(dbUser);
   });
+});
+
+// LOGIN
+app.get("/login", function(req, res) {
+  res.render("login");
+});
+
+// SIGN-UP
+app.get("/sign-up", function(req, res) {
+  res.render("sign-up");
+});
+
+// HOMEPAGE
+app.get("/", function(req, res) {
+  res.render("index");
+});
+
+// ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
+router.get("/dresses", function(req, res) {
+  res.render("dresses");
+});
+
+// DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION
+
+router.get("/dresses/:id", function(req, res) {
+  res.render("dresses");
+});
+
+//SINGLE PRODUCT VIEW
+router.get("/single", function(req, res) {
+  res.render("single");
+});
+
+
+// PAYMENT : DISPLAY THE PRODUCT REQUERID
+app.get("/payment", function(req, res) {
+  res.render("payment");
 });
 
 //Prepare the file to output our router.

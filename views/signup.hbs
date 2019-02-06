@@ -1,18 +1,22 @@
-<form id="formSignUp" method="POST" action="/signup">
-<label for="firstName"> First Name: </label>
-<input type="text" name="firstName" id="txtFirstName"/>
 
-<label for="lastName"> Last Name: </label>
-<input type="text" name="lastName" id="txtLastName"/>
+ <form class="form-signin" id="formSignUp" method="POST" action="/signup">
+  <img class="mb-4 text-center" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+ 
+  <label class="sr-only" for="firstName">First Name:</label>
+  <input class="form-control" type="text" name="firstName" id="txtFirstName" placeholder="FirstName"/>
 
-<label for="email"> Email: </label>
-<input type="email" name="email" id="txtEmail"/>
+  <label class="sr-only" for="lastName">Last Name:</label>
+  <input class="form-control" type="text" name="lastName" id="txtLastName" placeholder="LastName"/>
 
-<label for="password"> Password: </label>
-<input type="password" name="password" id="txtPassword"/>
+ <label class="sr-only" for="email">Email:</label>
+  <input class="form-control"  type="email" name="email" id="txtEmail" placeholder="Email"/>
 
-<button type="submit">Sign Up</button>
-
-</form>
+  <label for="password" class="sr-only">Password:</label>
+  <input type="password" name="password" id="txtPassword" class="form-control" placeholder="Password"/>
+ 
+  <button class="btn b btn-primary btn-block" type="submit">Sign Up</button>
 
 <a href="/login"> Already have an account? Log In</a>
+
+</form>
+<hr>

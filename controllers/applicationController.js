@@ -37,23 +37,79 @@ router.get("/reservations", isAuthenticated, function(req, res) {
 });
 
 // LOGIN
-app.get("/login", function(req, res) {
+router.get("/login", function(req, res) {
   res.render("login");
 });
 
 // SIGN-UP
-app.get("/sign-up", function(req, res) {
+router.get("/sign-up", function(req, res) {
   res.render("sign-up");
 });
 
 // HOMEPAGE
-app.get("/", function(req, res) {
+router.get("/", function(req, res) {
   res.render("index");
 });
 
 // ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
+//lo que necesito poner de cada vestido va aqui
 router.get("/dresses", function(req, res) {
-  res.render("dresses");
+  res.render("dresses",
+  {
+    collections: [
+      [
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        }
+      ],
+      [
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        }
+      ],
+      [
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+        }
+      ]
+    ]
+  });
 });
 
 // DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION
@@ -69,7 +125,7 @@ router.get("/single", function(req, res) {
 
 
 // PAYMENT : DISPLAY THE PRODUCT REQUERID
-app.get("/payment", function(req, res) {
+router.get("/payment", function(req, res) {
   res.render("payment");
 });
 

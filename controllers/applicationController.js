@@ -56,8 +56,7 @@ router.get("/dresses", function(req, res) {
   res.render("dresses");
 });
 
-// DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION
-
+// DISPLAYING BASE ON FILTER NEED TO COMPLETE THE FUNCTION
 router.get("/dresses/:id", function(req, res) {
   res.render("dresses");
 });
@@ -65,6 +64,23 @@ router.get("/dresses/:id", function(req, res) {
 //SINGLE PRODUCT VIEW
 router.get("/single", function(req, res) {
   res.render("single");
+});
+
+//DISPLAY DASHBOARD
+router.get("/dashboard", function(req, res) {
+  res.render("dashboard");
+});
+
+router.get("/orders", function(req, res) {
+  res.render("orders");
+});
+
+router.get("/products", function(req, res) {
+  res.render("products");
+});
+
+router.get("/customers", function(req, res) {
+  res.render("customers");
 });
 
 

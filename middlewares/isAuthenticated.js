@@ -1,5 +1,6 @@
 module.exports = function(req, res, next) {
   //verifica si estamos logged
+  console.log(req.user);
   if (req.user) {
     return next();
   }

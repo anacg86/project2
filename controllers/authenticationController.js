@@ -7,11 +7,16 @@ router.get("/login", function(req, res) {
   res.render("login.hbs", {});
 });
 
+//muestra el html de welcome
+router.get("/welcome", function(req, res) {
+  res.render("welcome.hbs", {});
+});
+
 //guarda rutas
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/welcome",
     failureRedirect: "/login"
   })
 );
@@ -40,4 +45,7 @@ router.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });
+
+
+
 module.exports = router;

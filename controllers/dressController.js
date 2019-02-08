@@ -16,7 +16,7 @@ router.post("/api/dresses", function(req, res) {
       price: parseInt(req.body.price)
     })
       .then(function() {
-        res.redirect(301, "/admin");
+        res.redirect("/admin");
       })
   });
   

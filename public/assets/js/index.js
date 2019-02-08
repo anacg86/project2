@@ -9,6 +9,7 @@ function deleteDress(id){
   })
 } */
 
-$("#deleteDress").on("click", function(){
-alert("Click");
+$("#updateDress").on("click", function(){
+alert("Click!");
+console.log("Click!");
 });

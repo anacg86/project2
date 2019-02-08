@@ -60,7 +60,7 @@ app.get("/api/dresses/:id", function(req, res) {
   });
 
   // PUT route for updating dresses - only for ADMIN.
-  app.put("/api/dresses", function(req, res) {
+  app.put("/api/edit", function(req, res) {
     db.Dress.update(
       req.body,
       {

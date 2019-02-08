@@ -69,11 +69,9 @@ router.post("/api/dresses", function(req, res) {
     price: parseInt(req.body.price)
   })
     .then(function() {
-      res.redirect(200, "/admin");
+      res.redirect("/admin");
     })
 });
-
-
 
 // ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
 //lo que necesito poner de cada vestido va aqui

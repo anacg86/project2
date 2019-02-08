@@ -10,6 +10,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 //va a checar si estamos autenticados para darle el welcome
 //A simple GET route
 router.get("/welcome", isAuthenticated, function(req, res) {
+  console.log("TEST WELCOME");
   //Using the handlebars view engine
   //we tell it to render the
   //welcome.hbs view, and give it
@@ -51,9 +52,109 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
+// Admin page
+router.get("/admin", function(req, res) {
+  res.render("admin");
+});
+
+router.post("/api/dresses", function(req, res) {
+  console.log(req.body);
+  models.Dress.create({
+    name: req.body.name,
+    category: req.body.category,
+    size: parseInt(req.body.size),
+    description: req.body.description,
+    stock: parseInt(req.body.stock),
+    picture: req.body.picture,
+    price: parseInt(req.body.price)
+  })
+    .then(function() {
+      res.redirect("/admin");
+    })
+});
+
 // ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
+//lo que necesito poner de cada vestido va aqui
 router.get("/dresses", function(req, res) {
-  res.render("dresses");
+   models.Dress.findAll({
+    attributes: ['name', 'price', 'picture']
+  }).then(function(dbDress) {
+    console.log(dbDress );
+    res.render("dresses", {dresses: dbDress});
+  });
+  /*res.render("dresses",
+  {
+    seedData: [
+      [
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        }
+      ],
+      [
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        }
+      ],
+      [
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        }
+      ],
+        [
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        }
+      ]
+    ]
+  });*/
 });
 
 // DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION

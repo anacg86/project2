@@ -54,62 +54,85 @@ router.get("/", function(req, res) {
 // ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
 //lo que necesito poner de cada vestido va aqui
 router.get("/dresses", function(req, res) {
-  res.render("dresses",
+   models.Dress.findAll({
+    attributes: ['name', 'price', 'picture']
+  }).then(function(dbDress) {
+    console.log(dbDress );
+    res.render("dresses", {dresses: dbDress});
+  });
+  /*res.render("dresses",
   {
-    collections: [
+    seedData: [
       [
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         },
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         },
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         }
       ],
       [
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         },
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         },
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         }
       ],
       [
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         },
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
         },
         {
-          name: "dress_1",
-          description: "dress",
-          image: "/assets/images/SequinStripeSleevelessWrapDress.jpg"
+          name: "",
+          price: "",
+          picture: ""
+        }
+      ],
+        [
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
+        },
+        {
+          name: "",
+          price: "",
+          picture: ""
         }
       ]
     ]
-  });
+  });*/
 });
 
 // DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION

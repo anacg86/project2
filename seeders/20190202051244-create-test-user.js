@@ -14,7 +14,6 @@ module.exports = {
       lastName: "Test",
       email: "test@email.com",
       password: password,
-      size: 0
     };
 
     return queryInterface.bulkInsert('Users', [seedData]);

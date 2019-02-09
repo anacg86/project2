@@ -4,8 +4,10 @@ require("dotenv").config();
 //put it inside a variable named express.
 const express = require("express");
 
+const models = require("./models");
+
 //The port for our express server.
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 //Create a new express server instance and put
 //it inside a variable named app.
@@ -33,6 +35,8 @@ models.sequelize.sync(syncOptions).then(function() {
   //instance, pass it the port we want for our server
   //and a callback function that should let us know
   //the server was able to start properly.
+  require("./routes/api-routes.js")(app);
+
   app.listen(PORT, function() {
     console.log("Server is listening on port", PORT);
   });

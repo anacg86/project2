@@ -10,6 +10,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 //va a checar si estamos autenticados para darle el welcome
 //A simple GET route
 router.get("/welcome", isAuthenticated, function(req, res) {
+  console.log("TEST WELCOME");
   //Using the handlebars view engine
   //we tell it to render the
   //welcome.hbs view, and give it
@@ -51,19 +52,57 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
-// ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
-router.get("/dresses", function(req, res) {
-  res.render("dresses");
+// Admin page
+router.get("/admin", function(req, res) {
+  res.render("admin");
 });
 
-// DISPLAYING BASE ON FILTER NEED TO COMPLETE THE FUNCTION
-router.get("/dresses/:id", function(req, res) {
-  res.render("dresses");
+router.post("/api/dresses", function(req, res) {
+  console.log(req.body);
+  models.Dress.create({
+    name: req.body.name,
+    category: req.body.category,
+    size: parseInt(req.body.size),
+    description: req.body.description,
+    stock: parseInt(req.body.stock),
+    picture: req.body.picture,
+    price: parseInt(req.body.price)
+  })
+    .then(function() {
+      res.redirect("/admin");
+    })
+});
+
+// ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
+//lo que necesito poner de cada vestido va aqui
+router.get("/dresses", function(req, res) {
+   models.Dress.findAll({
+    attributes: ['id','name', 'price', 'picture']
+  }).then(function(dbDress) {
+    console.log(dbDress );
+    res.render("dresses", {dresses: dbDress});
+  });
+});
+
+// SINGLE CATEGORY VIEW
+
+router.get("/dresses/:category", function(req, res) {
+  models.Dress.findAll({ where: { 
+    category: req.params.category } 
+  }).then(function(dressCategory) {
+    console.log(dressCategory);
+    res.render("dresses", {dresses: dressCategory});
+  });
 });
 
 //SINGLE PRODUCT VIEW
-router.get("/single", function(req, res) {
-  res.render("single");
+router.get("/dress/:id", function(req, res) {
+  models.Dress.findOne({ where: { 
+    id: req.params.id } 
+  }).then(function(individualDress) {
+    console.log("Individual Dress ID: " + individualDress);
+    res.render("single", {dresses: individualDress});
+  });
 });
 
 //DISPLAY DASHBOARD

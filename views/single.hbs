@@ -22,11 +22,10 @@
     <select class="form-control custom-select " id="exampleFormControlSelect1">
 
       <!-- custom-select-sm Should go an each for sizes {{sizes}}-->
-      <option>1</option>
+      <option>0</option>
       <option>2</option>
-      <option>3</option>
       <option>4</option>
-      <option>5</option>
+      <option>6</option>
     </select>
 
 
@@ -60,7 +59,7 @@
 <br>
 
 <div>
-<button type="button" class="btn btn-outline-secondary btn-lg btn-block ">Rent Now</button> 
+<button type="button" class="btn btn-outline-secondary btn-lg btn-block " id="rentNow">Rent Now</button> 
 
   </div>
 
@@ -75,3 +74,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  $("#rentNow").click(function(){
+    window.location.href = '/payment';
+    return false;
+  })
+</script>

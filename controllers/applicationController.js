@@ -74,7 +74,6 @@ router.post("/api/dresses", function(req, res) {
 });
 
 // ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
-//lo que necesito poner de cada vestido va aqui
 router.get("/dresses", function(req, res) {
    models.Dress.findAll({
     attributes: ['id','name', 'price', 'picture']

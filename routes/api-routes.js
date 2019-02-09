@@ -22,7 +22,7 @@ module.exports = function(app) {
   })
 
   // GET route for retrieving a single dress - ADMIN & USER
-app.get("/api/dresses/:id", function(req, res) {
+  app.get("/api/dresses/:id", function(req, res) {
     db.Dress.findOne({
       where: {
         id: req.params.id

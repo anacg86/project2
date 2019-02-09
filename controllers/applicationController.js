@@ -77,95 +77,32 @@ router.post("/api/dresses", function(req, res) {
 //lo que necesito poner de cada vestido va aqui
 router.get("/dresses", function(req, res) {
    models.Dress.findAll({
-    attributes: ['name', 'price', 'picture']
+    attributes: ['id','name', 'price', 'picture']
   }).then(function(dbDress) {
     console.log(dbDress );
     res.render("dresses", {dresses: dbDress});
   });
-  /*res.render("dresses",
-  {
-    seedData: [
-      [
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        }
-      ],
-      [
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        }
-      ],
-      [
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        }
-      ],
-        [
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        },
-        {
-          name: "",
-          price: "",
-          picture: ""
-        }
-      ]
-    ]
-  });*/
 });
 
-// DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION
+// SINGLE CATEGORY VIEW
 
-router.get("/dresses/:id", function(req, res) {
-  res.render("dresses");
+router.get("/dresses/:category", function(req, res) {
+  models.Dress.findAll({ where: { 
+    category: req.params.category } 
+  }).then(function(dressCategory) {
+    console.log(dressCategory);
+    res.render("dresses", {dresses: dressCategory});
+  });
 });
 
 //SINGLE PRODUCT VIEW
-router.get("/single", function(req, res) {
-  res.render("single");
+router.get("/dress/:id", function(req, res) {
+  models.Dress.findOne({ where: { 
+    id: req.params.id } 
+  }).then(function(individualDress) {
+    console.log("Individual Dress ID: " + individualDress);
+    res.render("single", {dresses: individualDress});
+  });
 });
 
 

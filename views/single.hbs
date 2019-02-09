@@ -4,7 +4,7 @@
     <div class="my-3 p-3">
             <!-- Should go {{image}}-->
 
-     <img style="height:85%;" src="https://media.missguided.com/s/missguided/DE916554_set/1/red-bardot-skater-dress"  class="img-fluid" alt="Responsive image">
+     <img style="height:85%;" src="{{dresses.picture}}"  class="img-fluid" alt="Responsive image">
     </div>
   </div>
 
@@ -13,11 +13,9 @@
     <div class="my-3 py-3">
             <!-- Should go an each for sizes {{name}}   {{description}}-->
 <!-- sizes, prices, description -->
-      <h2 class="display-5 text-left" >Title of the Dress</h2>
-      <h6 class="display-5 text-left" >SKU</h6>
-      <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam in, ab tempora architecto 
-        sapiente voluptates nulla quasi corporis error repellat. Earum, non. Consequatur, suscipit consectetur expedita
-        inventore pariatur adipisci?</p>
+      <h2 class="display-5 text-left" >{{dresses.name}}</h2>
+      <h6 class="display-5 text-left" >{{dresses.id}}</h6>
+      <p class="lead">{{dresses.description}}</p>
 
   <div class="form-group" >
     <label for="exampleFormControlSelect1">Sizes</label>

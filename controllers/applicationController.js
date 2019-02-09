@@ -105,6 +105,23 @@ router.get("/dress/:id", function(req, res) {
   });
 });
 
+//DISPLAY DASHBOARD
+router.get("/dashboard", function(req, res) {
+  res.render("dashboard");
+});
+
+router.get("/reservations", function(req, res) {
+  res.render("reservations");
+});
+
+router.get("/products", function(req, res) {
+  res.render("products");
+});
+
+router.get("/customers", function(req, res) {
+  res.render("customers");
+});
+
 
 // PAYMENT : DISPLAY THE PRODUCT REQUERID
 router.get("/payment", function(req, res) {

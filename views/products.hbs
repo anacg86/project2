@@ -36,18 +36,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                         {{#each dresses}}
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Size</th>
-                            <th>Description</th>
-                            <th>Stock</th>
-                            <th>Picture</th>
-                            <th>Price</th>
-                            <th>Created at</th>
-                            <th>Updated at</th>
+                            <th>{{id}}</th>
+                            <th>{{name}}</th>
+                            <th>{{category}}</th>
+                            <th>{{size}}</th>
+                            <th>{{description}}</th>
+                            <th>{{stock}}</th>
+                            <th>{{picture}}</th>
+                            <th>{{price}}</th>
+                            <th>{{createdAt}}</th>
+                            <th>{{updatedAt}}</th>
                         </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>

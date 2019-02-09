@@ -34,36 +34,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                            {{#each customers}}
                         <tr>
-                            <td>001</td>
-                            <td>Ana</td>
-                            <td>Cardenas</td>
-                            <td>email</td>
-                            <td>password</td>
-                            <td>Created at</td>
-                            <td>Updated at</td>
-                            <td>Size</td>
+                            <th>{{id}}</th>
+                            <th>{{firstName}}</th>
+                            <th>{{lastName}}</th>
+                            <th>{{email}}</th>
+                            <th>{{password}}</th>
+                            <th>{{createdAt}}</th>
+                            <th>{{updatedAt}}</th>
+                            <th>{{size}}</th>
                         </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>Ana</td>
-                            <td>Cardenas</td>
-                            <td>email</td>
-                            <td>password</td>
-                            <td>Created at</td>
-                            <td>Updated at</td>
-                            <td>Size</td>
-                        </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>Ana</td>
-                            <td>Cardenas</td>
-                            <td>email</td>
-                            <td>password</td>
-                            <td>Created at</td>
-                            <td>Updated at</td>
-                            <td>Size</td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>

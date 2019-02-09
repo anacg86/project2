@@ -26,7 +26,7 @@ router.get("/welcome", isAuthenticated, function(req, res) {
 //TEST ROUTE -- DELETE LATER
 //We use this route to check if the relationship between user
 //and dress is established correctly
-router.get("/reservations", isAuthenticated, function(req, res) {
+/* router.get("/reservations", isAuthenticated, function(req, res) {
   models.User.findOne({
     where: {
       id: req.user.id
@@ -35,7 +35,7 @@ router.get("/reservations", isAuthenticated, function(req, res) {
   }).then(function(dbUser) {
     res.json(dbUser);
   });
-});
+}); */
 
 // LOGIN
 router.get("/login", function(req, res) {
@@ -113,12 +113,22 @@ router.get("/reservations", function(req, res) {
   res.render("reservations");
 });
 
+//DISPLAY ALL PRODUCTS
 router.get("/products", function(req, res) {
-  res.render("products");
+  models.Dress.findAll({
+ }).then(function(products) {
+   console.log(products);
+   res.render("products", {dresses: products});
+ });
 });
 
+//DISPALY ALL CUSTOMERS
 router.get("/customers", function(req, res) {
-  res.render("customers");
+  models.User.findAll({
+ }).then(function(customer) {
+   console.log(customer);
+   res.render("customers", {customers: customer});
+ });
 });
 
 

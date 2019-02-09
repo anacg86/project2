@@ -42,8 +42,8 @@ router.get("/login", function(req, res) {
 });
 
 // SIGN-UP
-router.get("/sign-up", function(req, res) {
-  res.render("sign-up");
+router.get("/signup", function(req, res) {
+  res.render("signup");
 });
 
 // HOMEPAGE
@@ -52,8 +52,64 @@ router.get("/", function(req, res) {
 });
 
 // ALL THE PRODUCTS IT SHOULD DISPLAY ALL THE PRODUCTS FROM DB
+//lo que necesito poner de cada vestido va aqui
 router.get("/dresses", function(req, res) {
-  res.render("dresses");
+  res.render("dresses",
+  {
+    collections: [
+      [
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        }
+      ],
+      [
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        }
+      ],
+      [
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        },
+        {
+          name: "dress_1",
+          description: "dress",
+          image: "assets/images/SequinStripeSleevelessWrapDress.jpg"
+        }
+      ]
+    ]
+  });
 });
 
 // DISPLAYIN BASE ON FILTER NEED TO COMPLETE THE FUNCTION

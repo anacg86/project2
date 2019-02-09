@@ -71,8 +71,8 @@ router.get("/dashboard", function(req, res) {
   res.render("dashboard");
 });
 
-router.get("/orders", function(req, res) {
-  res.render("orders");
+router.get("/reservations", function(req, res) {
+  res.render("reservations");
 });
 
 router.get("/products", function(req, res) {
